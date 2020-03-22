@@ -43,7 +43,7 @@ const execProc = (resultVal, inputVal) => {
     }
   }
   // TODO:カンマ区切りのロジック見直す
-  //result.value = commaSeparated(result.value);
+  // resultVal = commaSeparated(resultVal);
   // 前回の入力値を保持
   previousValue = resultVal;
   return resultVal;

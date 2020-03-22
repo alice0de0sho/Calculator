@@ -1,7 +1,5 @@
 let result = document.getElementById('result');
 let calc = document.getElementById('calc');
-let repString = '/*/g';
-let reppString = '///g';
 
 /**
  * ボタン(0～9、+、-、×、÷、.)押下時の関数です。
@@ -64,8 +62,8 @@ const pushCalc = () => {
   let resultSplit = Array.from(result.value);
   // TODO:ここのロジックがイマイチなため見直し
   // TODO:四則演算の優先順位を考慮していないので要見直し
-  resultSplit.forEach(val => {
-    if (asmd.includes(val)) {
+  resultSplit.forEach((val, i) => {
+    if (i !== 0 && asmd.includes(val)) {
       asmdAry.push(val.replace('%', '÷'));
       splitAry.push(splitVal);
       splitVal = '';
