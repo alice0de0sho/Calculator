@@ -50,30 +50,7 @@ const pushChangePlusMinus = () =>
  *
  */
 const pushCalc = () => {
-  // +-×÷を格納する配列
-  let asmdAry = [];
-
-  // 入力値の数字を格納する配列
-  let splitAry = [];
-  // 分割した入力値文字列を結合するための文字列
-  let splitVal = '';
-
-  // 計算結果部分の文字列を分割し、配列化
-  let resultSplit = Array.from(result.value);
-  // TODO:ここのロジックがイマイチなため見直し
-  // TODO:四則演算の優先順位を考慮していないので要見直し
-  resultSplit.forEach((val, i) => {
-    if (i !== 0 && asmd.includes(val)) {
-      asmdAry.push(val.replace('%', '÷'));
-      splitAry.push(splitVal);
-      splitVal = '';
-    } else {
-      splitVal += val;
-    }
-  });
-  // TODO:この%のロジックだと考慮が漏れているので見直し
-  splitVal === '' && resultSplit.includes('%') ? splitAry.push('100') : splitAry.push(splitVal);
-
-  calc.value = result.value;
+  // 計算結果部分の文字列分割
+  calc.value = splitValue(result.value);
   result.value = execCalc(splitAry, asmdAry);
 };
